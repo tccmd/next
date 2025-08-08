@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -113,7 +114,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        {/* Layout UI */}
+        {/* Place children where you want to render a page or nested layout */}
         <>레이아웃</>
+        <ul>
+          <li>
+            <Link href="/blog">Blog</Link>
+          </li>
+        </ul>
         <main>{children}</main>
       </body>
     </html>
