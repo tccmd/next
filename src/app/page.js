@@ -1,10 +1,23 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Page from "./blog/page";
+import { Suspense } from "react";
+import LoadingIndicator from "./ui/loading-indicator";
 
-export default function Home() {
+export default async function Home({ searchParams }) {
+  const filters = (await searchParams).filters
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <div>main page</div>
+        <Suspense fallback={<p>Loading feed...</p>}>
+          <Page />
+        </Suspense>
+        <Suspense fallback={<LoadingIndicator />}>
+          <Page />
+        </Suspense>
+
         <Image
           className={styles.logo}
           src="/next.svg"
