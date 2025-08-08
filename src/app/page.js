@@ -1,7 +1,7 @@
 import Image from "next/image";
-import styles from "./page.module.css";
-import Page from "./blog/page";
 import { Suspense } from "react";
+import Page from "./(marketing)/blog/page";
+import styles from "./page.module.css";
 import LoadingIndicator from "./ui/loading-indicator";
 
 export default async function Home({ searchParams }) {
